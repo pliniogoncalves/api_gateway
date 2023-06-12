@@ -6,20 +6,20 @@ from auth import authenticate_user
 
 app = Flask(__name__)
 
-# Serve the index.html page
+# Exibir a página index.html
 @app.route('/')
 def index():
     return render_template('index.html')
 
-# Serve the index.html page
+# Exibir a página dashboard.html
 @app.route('/dashboard.html')
 def dashboard():
     return render_template('dashboard.html')
 
-# Mount the API gateway handlers
+# Monta os manipuladores de API gateway
 app.register_blueprint(gateway_app)
 
-# Define the login route
+# Define a rota de login
 app.add_url_rule('/login', 'login', login, methods=['POST'])
 
 if __name__ == '__main__':

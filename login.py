@@ -23,4 +23,4 @@ def login():
     if verify_credentials(username, password):
         return jsonify(message='Login successful')
     else:
-        return jsonify(message='Invalid credentials'), 401
+        return jsonify(message='Invalid credentials'), 404

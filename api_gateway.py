@@ -4,21 +4,21 @@ import requests
 import io
 import sys
 
-# Create a Blueprint for the API gateway
+# Criar um Blueprint para o gateway de API
 gateway_app = Blueprint('gateway_app', __name__)
 
-# Redirect stdout to a StringIO object
+# Redireciona stdout para um objeto StringIO
 stdout = sys.stdout
 sys.stdout = io.StringIO()
 
-# Define the routes and their corresponding backend services
+# Define as rotas e seus serviços de back-end correspondentes
 routes = {
     '/users': 'https://jsonplaceholder.typicode.com/users',
     '/products': 'https://reqres.in/api/products',
     '/orders': 'https://jsonplaceholder.typicode.com/orders'
 }
 
-# Example route for GET /users
+# Exemplo de rota para GET /users
 @gateway_app.route('/users', methods=['GET'])
 def get_users():
     users_service_url = routes['/users']
@@ -31,7 +31,7 @@ def get_users():
     sys.stdout = stdout
     return output.replace('\n', '<br>')
 
-# Example route for POST /users
+# Exemplo de rota para POST /users
 @gateway_app.route('/users', methods=['POST'])
 def create_user():
     users_service_url = routes['/users']
@@ -44,7 +44,7 @@ def create_user():
     sys.stdout = stdout
     return output.replace('\n', '<br>')
 
-# Example route for GET /products
+# Exemplo de rota para GET /products
 @gateway_app.route('/products', methods=['GET'])
 def get_products():
     products_service_url = routes['/products']
@@ -57,7 +57,7 @@ def get_products():
     sys.stdout = stdout
     return output.replace('\n', '<br>')
 
-# Example route for POST /products
+# Exemplo de rota para POST /products
 @gateway_app.route('/products', methods=['POST'])
 def create_product():
     products_service_url = routes['/products']
@@ -70,7 +70,7 @@ def create_product():
     sys.stdout = stdout
     return output.replace('\n', '<br>')
 
-# Example route for GET /orders
+# Exemplo de rota para GET /orders
 @gateway_app.route('/orders', methods=['GET'])
 def get_orders():
     orders_service_url = routes['/orders']
@@ -83,7 +83,7 @@ def get_orders():
     sys.stdout = stdout
     return output.replace('\n', '<br>')
 
-# Example route for POST /orders
+# Exemplo de rota para POST /orders
 @gateway_app.route('/orders', methods=['POST'])
 def create_order():
     orders_service_url = routes['/orders']
